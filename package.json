@@ -1,0 +1,7 @@
+{
+    "description": "Arduino Framework for Linkit 7697",
+    "name": "framework-arduinolinkit7697",
+    "system": "*",
+    "url": "...",
+    "version": "0.0.1"
+}
