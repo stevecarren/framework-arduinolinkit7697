@@ -91,7 +91,7 @@ env.Append(
         "MTK_WIFI_API_TEST_CLI_ENABLE",
         "MTK_WIFI_REPEATER_ENABLE",
         "MTK_WIFI_WPS_ENABLE",
-        ("MBEDTLS_CONFIG_FILE", "config-mtk-websocket.h"),
+        ("MBEDTLS_CONFIG_FILE", '\\"config-mtk-websocket.h\\"'),
         "SUPPORT_MBEDTLS",
         "MTK_MINISUPP_ENABLE",
         "MTK_WIFI_TGN_VERIFY_ENABLE"
