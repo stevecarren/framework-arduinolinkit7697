@@ -39,7 +39,6 @@ struct SoftAPConfig {
     }
 
     void getDHCPIPRange(IPAddress& start, IPAddress& end) {
-        IPAddress min = (uint32_t)m_softAP_localIP & (uint32_t)m_softAP_subnet;
         // cut the address range in half - we assume that the local IP is in the
         // 1st half of the subnet....
         uint8_t range = (~((uint8_t)m_softAP_subnet[3]));
@@ -161,7 +160,7 @@ bool WiFiClass::softAPdisconnect(bool wifioff) {
     dhcpd_stop();
 
     // Disable Wi-Fi Soft AP (by swtiching back into STA mode)
-    int32_t result = 0;
+    int32_t result;
     result = wifi_config_set_opmode(WIFI_MODE_STA_ONLY);
     pr_debug("wifi_config_set_opmode(WIFI_MODE_STA_ONLY) returns %d\n", result);
 
@@ -170,6 +169,9 @@ bool WiFiClass::softAPdisconnect(bool wifioff) {
         result = wifi_config_set_radio(0);
         pr_debug("wifi_config_set_radio(0) returns %d\n", result);
     }    
+
+    // squelch compiler warning fro unused variable
+    (void)result;
 
     return true;
 }

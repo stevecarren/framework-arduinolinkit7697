@@ -187,7 +187,7 @@ void lwip_init_start(uint8_t opmode)
 {
 	befor_beginfunc = 0;		//Indicate begin() aready exec
 
-	int result = wifi_config_set_radio(1);
+	wifi_config_set_radio(1);
 
 	switch (opmode) {
 		case WIFI_MODE_STA_ONLY:
